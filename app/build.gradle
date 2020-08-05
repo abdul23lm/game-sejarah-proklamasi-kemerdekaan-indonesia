@@ -43,11 +43,15 @@ android {
     }
 
     buildTypes {
-        buildTypes.each { buildType ->
-            buildType.buildConfigField "boolean",  "BACK_BUTTON_QUITS", String.valueOf(BACK_BUTTON_QUITS)
-            buildType.buildConfigField "boolean",  "SHOW_FPS",          String.valueOf(SHOW_FPS)
-            buildType.buildConfigField "boolean",  "FORCE_CANVAS",      String.valueOf(FORCE_CANVAS)
-            buildType.buildConfigField "boolean",  "FORCE_NO_AUDIO",    String.valueOf(FORCE_NO_AUDIO)
+        release{
+            minifyEnabled true
+            shrinkResources true
+            buildTypes.each { buildType ->
+                buildType.buildConfigField "boolean",  "BACK_BUTTON_QUITS", String.valueOf(BACK_BUTTON_QUITS)
+                buildType.buildConfigField "boolean",  "SHOW_FPS",          String.valueOf(SHOW_FPS)
+                buildType.buildConfigField "boolean",  "FORCE_CANVAS",      String.valueOf(FORCE_CANVAS)
+                buildType.buildConfigField "boolean",  "FORCE_NO_AUDIO",    String.valueOf(FORCE_NO_AUDIO)
+        }
         }
     }
 
